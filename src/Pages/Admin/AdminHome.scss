@@ -1,0 +1,14 @@
+@import "../../Constants/mixins";
+.admin-home {
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  background-color: var(--backgroundColor);
+  @include flex-container(row, center, center, 10px);
+  .main {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}

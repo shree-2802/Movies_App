@@ -1,0 +1,9 @@
+@mixin flex-container($direction, $justification, $alignItems, $gap) {
+  display: flex;
+  @if ($direction, $justification, $alignItems, $gap) {
+    flex-direction: $direction;
+    justify-content: $justification;
+    align-items: $alignItems;
+    gap: $gap;
+  }
+}

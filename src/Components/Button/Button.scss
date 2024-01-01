@@ -1,0 +1,19 @@
+.btn-log {
+  padding: 15px 20px;
+  font-size: large;
+  border-radius: 3px;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
+.btn-log:hover {
+  box-shadow: 0px 0px 0px white, 0px 0px 5px white, 0px 0px 0px white;
+  border: none;
+  padding: 15px 22px;
+}
+.btn-log:active {
+  background-color: white;
+  color: #0c192c;
+  font-weight: bold;
+}

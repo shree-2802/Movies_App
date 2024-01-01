@@ -1,0 +1,47 @@
+@import "../../../Constants/mixins";
+.genre {
+  @include flex-container(column, center, "", 40px);
+  width: 100vw;
+  //   overflow-x: hidden;
+  //    background-color: aliceblue;
+  .videoBanner {
+    @include flex-container(row, "", center, 20px);
+    padding-right: 200px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    & .video1 {
+      border-radius: 3px;
+      position: relative;
+      height: 200px;
+      width: 200px;
+      flex-shrink: 0;
+      background-position: center;
+      img {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        object-position: center;
+      }
+
+      .name {
+        position: absolute;
+        color: white;
+        bottom: 15px;
+        text-align: center;
+        font-size: large;
+        font-weight: bold;
+      }
+      .icon{
+        position: absolute;
+        bottom: 15px;
+        right: 20px;
+      }
+    }
+    & .video1:hover {
+      img {
+        opacity: 0.5;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+:root {
+  --backgroundColor: #0c192c;
+  --bubbleColor: #4fc3dc;
+}
+::-webkit-scrollbar{
+  width:1px;
+}
