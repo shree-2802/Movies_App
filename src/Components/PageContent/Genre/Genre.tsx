@@ -1,27 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { userAnalysis1 } from "../../../Constants/Constants";
+import React, {  useState ,useContext} from "react";
 import { TypeCheck } from "../../../Constants/Constants";
+import { LikeContext } from "../../../Pages/Admin/AdminHome";
+import { userAnalysisItem } from "../../../Types/Types";
 import HandleLike from "../../../Functions/HandleLike";
 // import {}
 import "./Genre.scss";
-type Check = keyof typeof TypeCheck;
-type Item = {
-  name?: string;
-  id?: string;
-  link?: string;
-  description?: string;
-};
-interface InputStream {
-  usertype: string;
-  userId?: number | any;
-}
-type s = {
-  id: number;
-  like: object | any;
-};
+import { InputStream,s,Check,Item } from "../../../Types/Types";
 
 const Genre: React.FC<InputStream> = ({ usertype, userId }) => {
-  let val: s | any = userAnalysis1.find((item) => item.id === userId);
+  const arraySet = useContext(LikeContext);
+  console.log(arraySet," genre")
+  let val: userAnalysisItem | any = [];
+  if (arraySet?.like) {
+    val = arraySet.like.find((item) => item.id === userId);
+  }
   const [foundBox, setFoundBox] = useState<s>(val);
   const VideoBox = (term: Check) => {
     const Arr: any = [];
@@ -29,7 +21,7 @@ const Genre: React.FC<InputStream> = ({ usertype, userId }) => {
       if (item.link) {
         Arr.push(
           <div key={ind} className="video1">
-            <img src={item.link} />
+            <img src={item.link} alt="hi"/>
             <p className="name">{item.name}</p>
             {usertype === "user" ? (
               <div className="icon">

@@ -8,10 +8,7 @@ import {
   PiListDashesLight
 } from "../../Assets/index";
 import "./Header.scss";
-interface InputType {
-  userType: string;
-  handlePage: any;
-}
+import { InputType } from "../../Types/Types";
 const Header: React.FC<InputType> = ({ userType, handlePage }) => {
   const pageHandle = (page: string) => {
     handlePage(page);

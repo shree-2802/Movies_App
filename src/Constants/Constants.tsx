@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
+import { userAnalysisItem } from "../Types/Types";
 export const SignIn = [
   {
     type: "email",
@@ -17,7 +18,7 @@ export const SignUp = [
   {
     type: "password",
     placeholder: "Password",
-  },
+  }
 ];
 export const AddListForm = [
   {
@@ -389,24 +390,24 @@ export const TypeCheck = {
 export const userAnalysis = {
   actions: 2,
 };
-export const userAnalysis1 = [
+export const userAnalysis1:userAnalysisItem[] = [
   {
     id: 1,
-    like: {
+    like: [{
       action: [0, 4],
       musicals: [2, 5, 3],
       romance: [0],
       mystery: [1, 2, 4],
-    },
+    }],
   },
   {
     id: 2,
-    like: {
+    like: [{
       action: [0, 1, 2, 4],
       musicals: [2, 1, 5, 6],
       romance: [0],
       mystery: [1, 3, 0, 4],
-    },
+    }],
   },
 ];
-export const Favorite = [];
+

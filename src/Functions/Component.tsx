@@ -1,14 +1,9 @@
 import React from "react";
 import Genre from "../Components/PageContent/Genre/Genre";
 import Home from "../Components/PageContent/Home/Home";
-import UserHome from "../Components/UserHome/Home/Home";
 import Favorite from "../Components/UserHome/Favourite/Favorite";
 import Add2List from "../Components/PageContent/AddedList/Add2List";
-interface Componen {
-  page: string;
-  userType: string;
-  userId?: number;
-}
+import { Componen } from "../Types/Types";
 const Component: React.FC<Componen> = ({ page, userType, userId }) => {
   if (page === "home") {
     if (userType === "admin") return <Home />;

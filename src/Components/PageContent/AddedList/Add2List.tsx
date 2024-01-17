@@ -3,13 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import "../../Form/Form.scss";
 import { TypeCheck } from "../../../Constants/Constants";
 import { AddListForm } from "../../../Constants/Constants";
-type Check = keyof typeof TypeCheck;
-type Item = {
-  name?: string;
-  id?: string;
-  link?: string;
-  description?: string;
-};
+import { Item, Check } from "../../../Types/Types";
 function Add2List() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -24,23 +18,23 @@ function Add2List() {
     e.preventDefault();
     if (
       TypeCheck[genre].map((item: Item) => {
-        if (item.link === link){
-          console.log('yes link');
+        if (item.link === link) {
+          console.log("yes link");
           sweetAlert("Oops", "Link already exists", "error");
-        }
-        else c++;
+        } else c++;
+        return<></>
       })
     )
-    console.log(c,);
-      if (c === TypeCheck[genre].length) {
-        TypeCheck[genre].push({
-          id: uuidv4(),
-          name: name,
-          link: link,
-          description: description,
-        });
-        sweetAlert("", "Movie Added", "success");
-      }
+      console.log(c);
+    if (c === TypeCheck[genre].length) {
+      TypeCheck[genre].push({
+        id: uuidv4(),
+        name: name,
+        link: link,
+        description: description,
+      });
+      sweetAlert("", "Movie Added", "success");
+    }
   };
   return (
     <div className="add-List">
@@ -60,12 +54,12 @@ function Add2List() {
           <option value="thriller">Thrillers</option>
         </select>
         {AddListForm.map((item) => {
-          return item.placeholder != "Description" ? (
+          return item.placeholder !== "Description" ? (
             <input
               type={item.type}
               placeholder={item.placeholder}
               required
-              value={item.placeholder == "Movie Name" ? name : link}
+              value={item.placeholder === "Movie Name" ? name : link}
               onChange={(e) => handleChange(e, item.placeholder)}
             />
           ) : (

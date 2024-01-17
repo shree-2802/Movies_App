@@ -1,9 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Button.scss";
-interface buttonProps {
-  content: string;
-}
+import { buttonProps } from "../../Types/Types";
 const Buttons: React.FC<buttonProps> = ({ content }) => {
   const navigate = useNavigate();
   const handleChange = (page: string) => {

@@ -1,12 +1,12 @@
 @import "../../../Constants/mixins";
-.favorites{
-    padding: 20px;
-    width: 100%;
-    // background-color: aliceblue;
-    @include flex-container(row,"","",50px);
-    flex-wrap: wrap;
-    img{
-        width:200px;
-        height:200px;
-    }
+.favorites {
+  padding: 20px;
+  width: 100%;
+  // background-color: aliceblue;
+  @include flex-container(row, "", "", 50px);
+  flex-wrap: wrap;
+  img {
+    width: 200px;
+    height: 200px;
+  }
 }

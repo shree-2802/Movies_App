@@ -1,13 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import "./Form.scss";
-import { off } from "process";
-interface Props {
-  page: string;
-  Array: Object | any;
-  handleSubmit: Function | any;
-  handlePage?: object | any;
-  admin?: boolean | any;
-}
+import { Props } from "../../Types/Types";
 const Form: React.FC<Props> = ({
   Array,
   handleSubmit,

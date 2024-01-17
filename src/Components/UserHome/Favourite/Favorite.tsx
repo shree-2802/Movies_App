@@ -1,36 +1,41 @@
-import React from "react";
-import { userAnalysis1, TypeCheck } from "../../../Constants/Constants";
+import React, { useContext } from "react";
+import { TypeCheck } from "../../../Constants/Constants";
 import "./Favorites.scss";
-type favorite = {
-  userId: number | undefined;
-};
-type ItemWithLink = {
-  id: string;
-  name: string;
-  link: string;
-  description: string;
-};
-type s = keyof typeof userAnalysis1;
-type check = keyof typeof TypeCheck;
+import { LikeContext } from "../../../Pages/Admin/AdminHome";
+import {
+  favorite,
+  Check,
+  ItemWithLink,
+  userAnalysisItem,
+} from "../../../Types/Types";
 const Favorite = ({ userId }: favorite) => {
-  let val: s | any = userAnalysis1.find((item) => item.id === userId);
+  const arraySet = useContext(LikeContext);
+  console.log(arraySet)
+  let val: userAnalysisItem | any = [];
+  if (arraySet?.like) {
+    console.log(arraySet?.like)
+    val = arraySet.like.find((item) => item.id === userId);
+  }
+
   console.log(val, "  val");
-  const handleFavorites = (item: check) => {
+
+  const handleFavorites = (item: Check) => {
     let Array: any = [];
-    if (val?.like[item]) {
-      val?.like[item].map((ind: number) => {
+    if (val?.like[0][item]) {
+      val?.like[0][item].map((ind: number) => {
         if (TypeCheck[item][ind] && "link" in TypeCheck[item][ind]) {
           const currentLink = TypeCheck[item][ind] as ItemWithLink;
           Array.push(
             <div key={ind}>
-              <img src={currentLink.link} />
+              <img src={currentLink.link} alt="shiv" />
               <p>{currentLink.name}</p>
             </div>
           );
+          return <></>;
         }
+        return <></>;
       });
     }
-    console.log(Array);
     return Array;
   };
   return (
@@ -40,7 +45,7 @@ const Favorite = ({ userId }: favorite) => {
           <React.Fragment>
             <h2>{item.toUpperCase()}</h2>
             <div key={ind} className="favorites">
-              {handleFavorites(item as check)}
+              {handleFavorites(item as Check)}
             </div>
           </React.Fragment>
         );
